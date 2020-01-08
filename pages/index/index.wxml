@@ -1,0 +1,20 @@
+<view class="container">
+    <scroll-view scroll-y class="left">
+        <view wx:for="{{menuList}}" wx:key='i' class="{{activeTypeLeft== item.id ?'active':''}}" bindtap="changeType" data-type="{{item.id}}">{{item.name}}</view>
+    </scroll-view>
+    <scroll-view class="right" scroll-y bindscroll='scroll' scroll-with-animation scroll-into-view="_{{activeTypeRight}}">
+        <view class="item section" wx:for="{{menuList}}" wx:key='i' id="_{{item.id}}">
+            <view class="title">{{item.name}}</view>
+            <view class="content">
+                <view class="sub-item" wx:for="{{item.goodsList}}" wx:key='i'>
+                    <image src="{{item.img}}"></image>
+                    <view class="info">
+                        <view class="name">{{item.name}}</view>
+                        <view class="norms">{{item.norms}}</view>
+                        <view class="price">{{item.price}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
